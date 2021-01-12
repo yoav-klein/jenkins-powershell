@@ -1,0 +1,25 @@
+
+pipeline
+{
+    agent { label 'master' }
+    
+    stages
+    {
+        stage('PowerShell') {
+            steps {
+                powershell script: """
+                echo "----- Helper --------"
+                cat "${env.WORKSPACE}\\..\\Research@tmp\\*\\PowershellHelper.ps1"
+                echo "---------- Wrapper ---------"
+                cat "${env.WORKSPACE}\\..\\Research@tmp\\*\\PowershellWrapper.ps1"
+                echo "---------- Script --------------"
+                cat "${env.WORKSPACE}\\..\\Research@tmp\\*\\PowershellScript.ps1"
+                
+                """
+            }
+        }
+        
+        
+    
+    }
+}
