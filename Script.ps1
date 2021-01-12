@@ -19,7 +19,22 @@ Second case
 A cmdlet that throws an exception
 this time with ErrorAction Stop
 
+This will finish with FAILURE
+
+Copy-Item -ErrorAction Stop invalid_path invalid_dir
+#>
+
+
+<#
+Third case
+-------------
+Using exit 1
 
 #>
 
-Copy-Item -ErrorAction Stop invalid_path invalid_dir
+try {
+    Copy-Item -ErrorAction Stop invalid_path invalid_dir
+} catch {
+    Write-Output "Error occured..."
+    exit 1
+}
