@@ -30,7 +30,7 @@ Third case
 -------------
 Using exit 1
 
-#>
+This will also FAIL the job
 
 try {
     Copy-Item -ErrorAction Stop invalid_path invalid_dir
@@ -38,3 +38,14 @@ try {
     Write-Output "Error occured..."
     exit 1
 }
+
+#>
+
+<#
+Fourth case
+------------
+Setting LastExitCode to 1
+
+#>
+
+$LastExitCode=1
