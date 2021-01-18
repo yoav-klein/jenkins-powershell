@@ -1,4 +1,6 @@
 
-param([string]$Name)
+param([string]$Name,
+       [bool]$Upload)
 
 echo $Name
+echo $Upload
